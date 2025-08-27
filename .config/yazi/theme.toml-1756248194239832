@@ -1,0 +1,58 @@
+## Color palette
+## Check https://github.com/rebelot/kanagawa.nvim for more details
+
+[manager]
+marker_copied = { fg = "#A4BAFF", bg = "#A4BAFF" }
+marker_cut = { fg = "#A4BAFF", bg = "#A4BAFF" }
+marker_marked = { fg = "#A4BAFF", bg = "#A4BAFF" }
+marker_selected = { fg = "#A4BAFF", bg = "#A4BAFF" }
+
+cwd = { fg = "#A4BAFF" }
+hovered = { reversed = true }
+preview_hovered = { reversed = true }
+
+find_keyword = { fg = "#A4BAFF", bg = "#181616" }
+find_position = {}
+
+tab_active = { reversed = true }
+tab_inactive = {}
+tab_width = 1
+
+count_copied = { fg = "#A4BAFF", bg = "#A4BAFF" }
+count_cut = { fg = "#A4BAFF", bg = "#A4BAFF" }
+count_selected = { fg = "#A4BAFF", bg = "#A4BAFF" }
+
+border_symbol = "│"
+border_style = { fg = "#A4BAFF" }
+
+[mode]
+normal_main = { fg = "#A4BAFF", bg = "#8ba4b0" }
+normal_alt = { fg = "#A4BAFF", bg = "#0d0c0c" }
+select_main = { fg = "#A4BAFF", bg = "#a292a3" }
+select_alt = { fg = "#A4BAFF", bg = "#0d0c0c" }
+unset_main = { fg = "#A4BAFF", bg = "#e6c384" }
+unset_alt = { fg = "#A4BAFF", bg = "#0d0c0c" }
+
+[pick]
+border = { fg = "#A4BAFF" }
+active = { fg = "#A4BAFF", bold = true }
+inactive = { fg = "#A4BAFF" }
+
+[input]
+border = { fg = "#A4BAFF" }
+title = { fg = "#A4BAFF" }
+value = { fg = "#A4BAFF" }
+selected = { reversed = true, fg = "#A4BAFF" }
+
+[completion]
+border = { fg = "#A4BAFF" }
+active = { reversed = true, fg = "#A4BAFF" }
+inactive = { fg = "#A4BAFF" }
+
+[tasks]
+border = { fg = "#A4BAFF" }
+title = { fg = "#A4BAFF" }
+hovered = { fg = "#A4BAFF" }
+
+[border_style]
+fg = "#A4BAFF"
