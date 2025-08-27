@@ -1,200 +1,137 @@
-/* colors defined at top for easy configuring */
-@define-color background #2C2A24;
-@define-color second-background #3A372F;
-@define-color text #ffffff;
-@define-color borders #ffafa4;
-@define-color focused #ffafa4;
-@define-color focused2 #ffafa4;
-@define-color color1 #7699A3;
-@define-color color2 #8D7AAE;
-@define-color color3 #78997A;
-@define-color urgent #B05A5A;
+/* -----------------#24837B------------------------------------
+ *                      Config
+ * ----------------------------------------------------- */
+@define-color bg-1 #100f0f;
+@define-color bg-2 #1C1B1A;
+@define-color ui-1 #282726;
+@define-color ui-2 #343331;
+@define-color ui-3 #403E3C;
+@define-color tx-1 #CECDC3;
+@define-color tx-2 #F2F0E5;
+@define-color tx-3 #878580;
+@define-color cyan #24837B;
+@define-color magenta #A02F6F;
+@define-color red #AF3029;
 
-
-/* font declared */
 * {
-    font-family: "Iosevka Nerd Font";
-    font-size: 15px;
-}
-#custom-openbracket,
-#custom-closebracket{
-    margin: 0 5px ;
-}
-
-/* idk what all this does */
-window#waybar {
-    background-color: transparent;
-    border-bottom: 0;
-    color: @text;
-    transition: background-color 0.5s;
-}
-window#waybar.hidden {
-    opacity: 0.2;
-}
-window#waybar.empty #window {
-    background-color: transparent;
-}
-
-
-/* configuring the modules */
-.modules-left {
-    margin: 10px 0 0 10px;
-    padding: 0 0 0 7px;
-    background-color: @background;
-    border: 2px solid @focused;
-    border-radius: 0; /* zmienione z 5px na 0 */
-}
-.modules-center {
-    margin: 10px 0 0 0;
-    padding: 0 10px 0 10px;
-    background-color: @background;
-    border: 2px solid @focused;
-    border-radius: 0; /* zmienione z 5px na 0 */
-}
-.modules-right {
-    margin: 10px 10px 0 0;
-    padding: 0 10px 0 10px;
-    background-color: @background;
-    border: 2px solid @focused;
-    border-radius: 0; /* zmienione z 5px na 0 */
-}
-
-
-
-/* whats this?? */
-button {
+  font-family:
+    JetBrains Mono,
+    Symbols Nerd Font Mono;
+  font-size: 14px;
+  border-radius: 0;
   border: none;
+  box-shadow: none;
+  transition: none;
 }
 
-
-/* left island */
-
-/* menu pannel */
-#custom-arch,
-#custom-powerprofile,
-#custom-themeswitcher{
-    padding-right: 10px;
-    padding-left: 5px;
-    font-size: 15px;
-    border-radius: 0px;
-}
-#custom-arch:hover {
-    color: @color1;
-}
-#custom-powerprofile:hover{
-    color: @color1
-}
-#custom-themeswitcher:hover {
-    color: @color1;
+/* -----------------------------------------------------
+ *                      Bar
+ * ----------------------------------------------------- */
+window#waybar {
+  color: @tx-1;
+  background-color: @bg-1;
 }
 
-/* workspace pannel */
-/* workspace pannel */
-/* workspace pannel */
+/* -----------------------------------------------------
+ *                      Tooltip
+ * ----------------------------------------------------- */
+tooltip {
+  background: @bg-1;
+  border: solid 1px @ui-1;
+  border-radius: 6px;
+}
+
+tooltip label {
+  color: @tx-1;
+}
+
+/* -----------------------------------------------------
+ *                  Hyprland workspaces
+ * ----------------------------------------------------- */
+#workspaces {
+  background-color: @bg-1;
+  margin: 0 4px;
+}
 #workspaces button {
-    min-width: 22px;
-    border-radius: 151px;
-    margin: 0px 0;
-    padding: 2px 4px;
-    /* --- ZMIANA: Lekko przyciemniony tekst dla czytelności --- */
-    color: #BBBBBB; /* Jasna szarość (wygląda jak ok. 80% bieli) */
-    /* ----------------------------------------------------------- */
-}
-#workspaces button:hover {
-    background-color: @second-background;
+  color: @tx-1;
+  font-weight: normal;
+  margin: 2px 1px;
+  padding: 0 5px;
 }
 #workspaces button.active {
-    color: @focused2;
-    background-color: @second-background;
+  color: @cyan;
+  box-shadow: inset 0 0 0 1px @ui-1;
+  border-radius: 6px;
 }
+
 #workspaces button.urgent {
-    background-color: @urgent;
+  color: @magenta;
 }
-/* ... reszta kodu ... */
-
-/* no idea what this does */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+#mode {
+  color: @tx-2;
+  padding: 0 10px;
+  margin: 2px 1px;
+  background-color: @bg-2;
+  box-shadow: inset 0 0 0 1px @ui-1;
+  border-radius: 6px;
 }
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+#window {
+  color: @tx-1;
+  padding: 0 10px;
 }
-
-/* media player */
-#mpris {
-    margin: 0 0 0 5px;
-    padding: 0 9px ;
-    background-color: @background;
-    color: @text;
-}
-#mpris.playing {
-    background-color: @color3;
-    border-radius: 2px;
-    color: @background;
-}
-
-
-/* center module  */
-#window{
-    padding: 0 5px;
-}
-
-/* Right Island */
-
-/* module general styles */
+/* -----------------------------------------------------
+ *                      Modules
+ * ----------------------------------------------------- */
 #clock,
 #battery,
-#cpu,
-#memory,
-#custom-clipboard,
-#custom-bluetooth,
+#wireplumber,
+#custom-mic,
+#custom-idle,
+#custom-wf-recorder,
+#custom-idle,
+#tray,
 #network {
-  padding: 0 10px ;
+  color: @tx-1;
+  padding: 0 10px;
+  margin: 2px 1px;
 }
+
+#tray {
+  background-color: @bg-2;
+  box-shadow: inset 0 0 0 1px @ui-1;
+  border-radius: 6px;
+}
+
+#tray menu {
+  background-color: @bg-1;
+  border: solid 1px @ui-1;
+  border-radius: 6px;
+}
+
+#custom-wf-recorder {
+  color: @red;
+  background-color: @bg-2;
+  box-shadow: inset 0 0 0 1px @ui-1;
+  border-radius: 6px;
+}
+
+#custom-power {
+  color: @tx-1;
+  padding: 0 10px;
+  margin: 2px 4px;
+}
+/* -----------------------------------------------------
+ *                      Hover candy
+ * ----------------------------------------------------- */
 #clock:hover,
-#battery:hover,
-#custom-cpu:hover,
-#custom-clipboard:hover,
-#custom-bluetooth:hover,
+#custom-idle:hover,
+#custom-power:hover,
+#custom-wf-recorder:hover,
 #network:hover,
-#idle_inhibitor:hover,
-#custom-swaync:hover,
-#backlight:hover,
-#wireplumber:hover{
-    color: @color1;
-}
-#idle_inhibitor{
-  padding: 0 10px 0 0;
-}
-#custom-powerprofile{
-  padding: 0 8px 0 4px;
-}
-/* Remaining Modules */
-#backlight,
-#wireplumber{
-    padding: 0 5px;
-}
-#wireplumber.muted {
-  background-color: @color2;
-}
-#custom-swaync {
-    padding: 0 10px 0 5px;
-    font-size: 16px;       /* same scale as other icons */
-    color: @text;
-}
-#battery.charging,
-#battery.plugged {
-  background-color: @focused2 ;
-  color: @background;
-}
-#battery.critical:not(.charging) {
-  background-color: @urgent;
-  color: @text;
-  animation: blink 0.5s steps(12) infinite alternate;
-}
-@keyframes blink {
-  to {
-    background-color: @second-background;
-    color: @text;
-  }
+#tray menu menuitem:hover,
+#tray:hover,
+#wireplumber:hover,
+#workspaces button:hover {
+  background: @ui-1;
+  border-radius: 6px;
 }

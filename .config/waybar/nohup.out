@@ -1,0 +1,9 @@
+[2025-08-27 18:43:57.272] [info] Using configuration file /home/najdza/.config/waybar/config.jsonc
+[2025-08-27 18:43:57.274] [info] Discovered appearance 'dark'
+[2025-08-27 18:43:57.290] [info] Using CSS file /home/najdza/.config/waybar/style.css
+[2025-08-27 18:43:57.294] [info] Hyprland IPC starting
+[2025-08-27 18:43:57.295] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-08-27 18:43:57.295] [warning] 'swap-icon-label' must be a bool.
+[2025-08-27 18:43:57.302] [warning] No battery named BAT0
+sh: linia 1: /home/najdza/.config/hypr/waybar/scripts/idle.sh: Nie ma takiego pliku ani katalogu
+[2025-08-27 18:43:57.346] [info] Bar configured (width: 1920, height: 28) for output: HDMI-A-1
