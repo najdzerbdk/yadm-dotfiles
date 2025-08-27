@@ -42,22 +42,23 @@ window#waybar.empty #window {
     padding: 0 0 0 7px;
     background-color: @background;
     border: 2px solid @focused;
-    border-radius: 5px;
+    border-radius: 0; /* zmienione z 5px na 0 */
 }
 .modules-center {
     margin: 10px 0 0 0;
     padding: 0 10px 0 10px;
     background-color: @background;
     border: 2px solid @focused;
-    border-radius: 5px;
+    border-radius: 0; /* zmienione z 5px na 0 */
 }
 .modules-right {
     margin: 10px 10px 0 0;
     padding: 0 10px 0 10px;
     background-color: @background;
     border: 2px solid @focused;
-    border-radius: 5px;
+    border-radius: 0; /* zmienione z 5px na 0 */
 }
+
 
 
 /* whats this?? */
@@ -75,7 +76,7 @@ button {
     padding-right: 10px;
     padding-left: 5px;
     font-size: 15px;
-    border-radius: 8px;
+    border-radius: 0px;
 }
 #custom-arch:hover {
     color: @color1;
