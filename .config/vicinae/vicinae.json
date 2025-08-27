@@ -1,0 +1,19 @@
+{
+    "faviconService": "twenty",
+    "font": {
+        "normal": "Hack",
+        "size": 10
+    },
+    "popToRootOnClose": false,
+    "rootSearch": {
+        "searchFiles": false
+    },
+    "theme": {
+        "name": "github-dark.json"
+    },
+    "window": {
+        "csd": true,
+        "opacity": 0.95,
+        "rounding": 10
+    }
+}
