@@ -2,9 +2,9 @@
 @define-color background #2C2A24;
 @define-color second-background #3A372F;
 @define-color text #ffffff;
-@define-color borders #A4BAFF;
-@define-color focused #A4BAFF;
-@define-color focused2 #A4BAFF;
+@define-color borders #ffafa4;
+@define-color focused #ffafa4;
+@define-color focused2 #ffafa4;
 @define-color color1 #7699A3;
 @define-color color2 #8D7AAE;
 @define-color color3 #78997A;
