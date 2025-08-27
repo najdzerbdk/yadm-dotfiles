@@ -1,26 +1,17 @@
 {
   "height": 40,
-  "spacing": 5,
+  "spacing": 10,
   "swap-icon-label": true,
-
   "modules-left": [
     "group/workspaces",
-    "custom/player2",
+    "custom/player2"
   ],
-
   "modules-center": [
     "group/windows"
   ],
-
   "modules-right": [
-    "group/cpuram",
-    "custom/openbracket",
-    "wireplumber",
-    "custom/closebracket",
     "group/system",
-    "custom/openbracket",
-    "tray",
-    "custom/closebracket",
+    "wireplumber",
   ],
 
   // ====================
@@ -30,23 +21,23 @@
     "format": "[",
     "tooltip": false
   },
-
   "custom/closebracket": {
     "format": "]",
     "tooltip": false
   },
-
   "custom/split": {
     "format": "|",
     "tooltip": false
   },
-
+  "custom/space": {
+    "format": "   ",
+    "tooltip": false
+  },
   "custom/arch": {
     "format": "󰣇",
     "tooltip": false,
     "on-click": "wofi --show drun"
   },
-
   "custom/powerprofile": {
     "exec": "~/.config/waybar/scripts/powerprofile.sh display",
     "on-click": "~/.config/waybar/scripts/powerprofile.sh toggle",
@@ -55,7 +46,6 @@
     "exec-tooltip": "~/.config/waybar/scripts/powerprofile.sh tooltip",
     "tooltip-format": "Power Profile: {} \nClick to cycle: Efficient → Normal → Overclocked"
   },
-
   "custom/themeswitcher": {
     "format": "",
     "tooltip": true,
@@ -63,14 +53,12 @@
     "on-click": "~/.config/waybar/scripts/theme-switcher.sh next",
     "on-click-right": "~/.config/scripts/theme-switcher.sh random"
   },
-
   "custom/player2": {
     "exec": "~/.config/waybar/scripts/player_waybar.sh",
     "interval": 2,
     "on-click": "bash ~/.config/waybar/scripts/player_waybar.sh toggle",
     "tooltip": false
   },
-
   "custom/notification": {
     "tooltip": true,
     "format": "<span font-size='large'>{icon}</span>",
@@ -88,7 +76,6 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-
   "custom/spotify": {
     "exec": "/usr/bin/python3 /home/najdza/.config/waybar/scripts/mediaplayer.py",
     "format": "{}  ",
@@ -97,28 +84,24 @@
     "on-scroll-up": "playerctl --player=spotify next",
     "on-scroll-down": "playerctl --player=spotify previous"
   },
-
   "custom/bluetooth": {
     "format": "{}",
     "exec": "~/.config/waybar/scripts/bluetooth_status.sh",
     "interval": 5,
     "on-click": "blueman-manager"
   },
-
   "custom/player": {
     "exec": "~/.config/waybar/scripts/player_waybar.sh",
     "interval": 2,
     "on-click": "bash ~/.config/waybar/scripts/player_waybar.sh toggle",
     "tooltip": false
   },
-
   "custom/brave": {
     "exec": "/home/najdza/.config/waybar/scripts/waybar_brave_player.sh",
     "interval": 2,
     "tooltip": false,
     "on-click": "playerctl -p brave play-pause"
   },
-
   "custom/cava": {
     "exec": "~/.config/waybar/scripts/cava_wrapper.sh",
     "format": "♪ {}",
@@ -132,56 +115,41 @@
   // ====================
   "group/workspaces": {
     "orientation": "horizontal",
-    "modules": [
-      "custom/openbracket",
-      "hyprland/workspaces",
-      "custom/closebracket"
-    ]
+    "spacing": 5,
+    "modules": ["hyprland/workspaces"]
   },
-
   "group/windows": {
     "orientation": "horizontal",
-    "modules": [
-      "custom/openbracket",
-      "hyprland/window",
-      "custom/closebracket"
-    ]
+    "spacing": 5,
+    "modules": ["hyprland/window"]
   },
-
   "group/cpuram": {
     "orientation": "horizontal",
-    "modules": [
-      "custom/openbracket",
-      "cpu",
-      "custom/split",
-      "memory",
-      "custom/closebracket"
-    ]
+    "spacing": 8,
+    "modules": ["cpu", "custom/space", "memory"]
   },
-
   "group/system": {
     "orientation": "horizontal",
-    "modules": [
-      "custom/openbracket",
-      "clock",
-      "custom/closebracket"
-    ]
+    "spacing": 5,
+    "modules": ["clock"]
   },
 
   // ====================
   // Hyprland Modules
   // ====================
-  "hyprland/workspaces": {
+"hyprland/workspaces": {
     "all-outputs": true,
     "warp-on-scroll": false,
     "enable-bar-scroll": true,
     "disable-scroll-wraparound": true,
     "active-only": false,
     "format": "{icon}",
-    "persistent-workspaces": { "*": [1,2,3] },
-    "format-icons": { "1":"1","2":"2","3":"3","default":"•" }
-  },
+    "format-focused": "<span color='#957fb8'><b>{icon}</b></span>",
+    "persistent-workspaces": { "*": [1, 2, 3] },
+    "format-icons": { "1": "1", "2": "2", "3": "3", "default": "•" }
+}
 
+  },
   "hyprland/window": {
     "format": "{title}",
     "max-length": 40,
@@ -198,19 +166,25 @@
     "interval": 2,
     "on-click": "konsole -e btop"
   },
-
   "memory": {
     "format": "RAM:{}%",
     "tooltip": false,
     "interval": 2,
     "on-click": "konsole -e btop"
   },
+  "custom/gammastep": {
+    "format": "🌗 ", 
+    "tooltip": true,
+    "tooltip-format": "Toggle gammastep",
+    "on-click": "gammastep toggle"
+},
+
 
   // ====================
   // Clock
   // ====================
   "clock": {
-    "format": "{:%R}",
+    "format": "{:%R}  ",
     "tooltip-format": "{calendar}",
     "calendar": {
       "format": {
@@ -227,15 +201,14 @@
   // ====================
   "wireplumber": {
     "scroll-step": 5,
-    "format": "{icon}{volume}%",
-    "format-bluetooth": "{icon} {volume}% ",
+    "format": "{icon}{volume}% ",
+    "format-bluetooth": "{icon} {volume}%  ",
     "format-bluetooth-muted": " {icon}",
     "format-muted": " 0%",
-    "format-icons": { "default": [" "," "," "] },
+    "format-icons": { "default": [" ", " ", " "] },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol"
   },
-
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": " {volume}%",

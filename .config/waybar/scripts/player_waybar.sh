@@ -69,4 +69,4 @@ artist=$(playerctl -p "$ACTIVE_PLAYER" metadata artist 2>/dev/null)
 note="♪"
 
 # Wyświetl w Waybar
-echo "  $icon $artist – $title"
+echo " $icon  $artist – $title"

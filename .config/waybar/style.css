@@ -1,137 +1,185 @@
-/* -----------------#24837B------------------------------------
- *                      Config
- * ----------------------------------------------------- */
-@define-color bg-1 #100f0f;
-@define-color bg-2 #1C1B1A;
-@define-color ui-1 #282726;
-@define-color ui-2 #343331;
-@define-color ui-3 #403E3C;
-@define-color tx-1 #CECDC3;
-@define-color tx-2 #F2F0E5;
-@define-color tx-3 #878580;
-@define-color cyan #24837B;
-@define-color magenta #A02F6F;
-@define-color red #AF3029;
+/* tokyonight color scheme */
+@define-color bg-color #1a1b26;
+@define-color fg-color #a9b1d6;
+@define-color tn-green #9ece6a;
+@define-color tn-red #f7768e;
+@define-color tn-blue #7aa2f7;
+@define-color tn-yellow #e0af68;
+@define-color tn-purple #bb9af7;
+@define-color tn-grey #343b58;
 
+@define-color background #2C2A24;
+@define-color second-background #3A372F;
+@define-color text #ffffff;
+@define-color borders #A4BAFF;
+@define-color focused #A4BAFF;
+@define-color focused2 #dcd7ba;
+@define-color color1 #7699A3;
+@define-color color2 #8D7AAE;
+@define-color color3 #78997A;
+@define-color urgent #B05A5A;
+/* kanagawa color scheme */
+@define-color kngw-bg-color #16161d;
+@define-color kngw-fg-color #dcd7ba;
+@define-color kngw-green #76946a;
+@define-color kngw-red #c34043;
+@define-color kngw-blue #7e9cd8;
+@define-color kngw-yellow #c0a36e;
+@define-color kngw-purple #957fb8;
+@define-color kngw-grey #54546d;
+
+
+/* Global Styles */
 * {
-  font-family:
-    JetBrains Mono,
-    Symbols Nerd Font Mono;
-  font-size: 14px;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
-  transition: none;
+  font-family: JetBrainsMono NFP;
+  font-weight: bold;
+  font-size: 12px;
 }
 
-/* -----------------------------------------------------
- *                      Bar
- * ----------------------------------------------------- */
-window#waybar {
-  color: @tx-1;
-  background-color: @bg-1;
+/* Waybar */
+#waybar {
+  background: @kngw-bg-color;
+  color: @kngw-fg-color;
 }
 
-/* -----------------------------------------------------
- *                      Tooltip
- * ----------------------------------------------------- */
+/* Tooltips */
 tooltip {
-  background: @bg-1;
-  border: solid 1px @ui-1;
-  border-radius: 6px;
+  color: @kngw-fg-color;
+  background: @kngw-bg-color;
+  border: 2px solid @kngw-blue;
 }
 
-tooltip label {
-  color: @tx-1;
-}
-
-/* -----------------------------------------------------
- *                  Hyprland workspaces
- * ----------------------------------------------------- */
-#workspaces {
-  background-color: @bg-1;
-  margin: 0 4px;
-}
-#workspaces button {
-  color: @tx-1;
-  font-weight: normal;
-  margin: 2px 1px;
-  padding: 0 5px;
-}
-#workspaces button.active {
-  color: @cyan;
-  box-shadow: inset 0 0 0 1px @ui-1;
-  border-radius: 6px;
-}
-
-#workspaces button.urgent {
-  color: @magenta;
-}
-#mode {
-  color: @tx-2;
-  padding: 0 10px;
-  margin: 2px 1px;
-  background-color: @bg-2;
-  box-shadow: inset 0 0 0 1px @ui-1;
-  border-radius: 6px;
-}
-#window {
-  color: @tx-1;
-  padding: 0 10px;
-}
-/* -----------------------------------------------------
- *                      Modules
- * ----------------------------------------------------- */
-#clock,
-#battery,
-#wireplumber,
-#custom-mic,
-#custom-idle,
-#custom-wf-recorder,
-#custom-idle,
+/* Modules */
+#mode,
 #tray,
-#network {
-  color: @tx-1;
-  padding: 0 10px;
-  margin: 2px 1px;
+#clock,
+#clock.date,
+#mpris,
+#upower,
+#language,
+#workspaces,
+#network.vpn,
+#pulseaudio.speaker,
+#pulseaudio.mic,
+#temperature,
+
+#custom-timer,
+#custom-updates,
+#custom-weather,
+#custom-launcher,
+#custom-notification,
+#custom-scratchpad-indicator {
+  margin: 0px 1px;
+  padding: 0px 2px;
 }
 
-#tray {
-  background-color: @bg-2;
-  box-shadow: inset 0 0 0 1px @ui-1;
-  border-radius: 6px;
+/* Specific Module Styling */
+
+
+.modules-left {
+    /* margin: 10px 0 0 10px; */
+    padding: 0 7px 0 7px; /* Dodano padding-right */
+    /* background-color: @background; */
+    /* border: 2px solid @focused; */
+    border-radius: 5px;
+}
+.modules-center {
+    /* margin: 10px 0 0 0; */
+    padding: 0 10px 0 10px;
+    /* background-color: @background; */
+    /* border: 2px solid @focused; */
+    border-radius: 5px;
+}
+.modules-right {
+    /* margin: 10px 10px 0 0; */
+    padding: 0 10px 0 10px;
+    /* background-color: @background; */
+    /* border: 2px solid @focused; */
+    border-radius: 5px;
 }
 
-#tray menu {
-  background-color: @bg-1;
-  border: solid 1px @ui-1;
-  border-radius: 6px;
+#mode,
+#custom-updates,
+#custom-scratchpad-indicator {
+  color: @kngw-blue;
 }
 
-#custom-wf-recorder {
-  color: @red;
-  background-color: @bg-2;
-  box-shadow: inset 0 0 0 1px @ui-1;
-  border-radius: 6px;
+#network.vpn {
+  color: @kngw-yellow;
 }
 
-#custom-power {
-  color: @tx-1;
-  padding: 0 10px;
-  margin: 2px 4px;
+#pulseaudio.speaker {
+  min-width: 13px;
 }
-/* -----------------------------------------------------
- *                      Hover candy
- * ----------------------------------------------------- */
-#clock:hover,
-#custom-idle:hover,
-#custom-power:hover,
-#custom-wf-recorder:hover,
-#network:hover,
-#tray menu menuitem:hover,
-#tray:hover,
-#wireplumber:hover,
+
+#pulseaudio.mic {
+  color: @kngw-green;
+  min-width: 13px;
+}
+
+#pulseaudio.speaker.muted {
+  color: @kngw-red;
+}
+
+#pulseaudio.mic.source-muted {
+  background: none;
+  color: @kngw-fg-color;
+}
+
+#custom-notification.notification {
+  color: @kngw-blue;
+}
+
+#custom-notification.dnd-none {
+  color: @kngw-red;
+}
+
+#custom-notification.dnd-notification {
+  color: @kngw-red;
+}
+
+#custom-notification,
+#custom-notification.notification,
+#custom-notification.dnd-notification {
+  margin-right: 10px;
+}
+
+#custom-launcher {
+  color: @kngw-blue;
+  margin: 0px 0px 0px 10px;
+  border-radius: 0px;
+}
+
+#upower.charging {
+  color: @kngw-green;
+}
+
+#temperature.critical {
+  color: @kngw-red;
+}
+
+/* Workspace Buttons */
+/* workspace pannel */
+#workspaces button {
+    min-width: 22px;
+    border-radius: 151px;
+    margin: 0px 0;
+    padding: 2px 4px;
+    /* --- ZMIANA: Lekko przyciemniony tekst dla czytelności --- */
+    color: #BBBBBB; /* Jasna szarość (wygląda jak ok. 80% bieli) */
+    /* ----------------------------------------------------------- */
+}
+
 #workspaces button:hover {
-  background: @ui-1;
-  border-radius: 6px;
+    background-color: @second-background;
 }
+
+#workspaces button.active {
+    color: @focused2;
+    background-color: @second-background;
+}
+#workspaces button.urgent {
+    background-color: @urgent;
+}
+
+
