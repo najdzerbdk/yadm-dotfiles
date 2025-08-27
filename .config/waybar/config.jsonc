@@ -1,133 +1,257 @@
 {
-  "layer": "bottom",
-  "position": "top",
-  //"height": 28,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock"],
-  "modules-right": [
-    "tray",
-    "network",
-    "wireplumber#sink",
-    "custom/idle",
-    "battery",
-    "custom/power",
+  "height": 40,
+  "spacing": 5,
+  "swap-icon-label": true,
+
+  "modules-left": [
+    "group/workspaces",
+    "custom/player2",
   ],
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-  },
-  "hyprland/window": {
-    "format": "{}",
-    "max-length": 70,
-    "icon": false,
-    "icon-size": 20,
-    "tooltip": false,
-  },
-  "tray": {
-    "icon-size": 16,
-    "spacing": 12,
-    // Override some ugly icons
-    "icons": {
-      "discord": "discord",
-    },
+
+  "modules-center": [
+    "group/windows"
+  ],
+
+  "modules-right": [
+    "group/cpuram",
+    "custom/openbracket",
+    "wireplumber",
+    "custom/closebracket",
+    "group/system",
+    "custom/openbracket",
+    "tray",
+    "custom/closebracket",
+  ],
+
+  // ====================
+  // Custom Modules
+  // ====================
+  "custom/openbracket": {
+    "format": "[",
+    "tooltip": false
   },
 
-  "battery": {
-    "bat": "BAT0",
-    "interval": 60,
-    "states": {
-      "warning": 30,
-      "critical": 15,
-    },
-    "format": "{capacity}% {icon}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "max-length": 25,
+  "custom/closebracket": {
+    "format": "]",
+    "tooltip": false
   },
-  "network": {
-    "format-wifi": "󰖩",
-    "format-ethernet": "", // No icons needed if ethernet is connected
-    "format-linked": "{ifname} (No IP) ?",
-    "format-disconnected": "󰅛",
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "tooltip-format-wifi": "Network: <b>{essid}</b>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 30,
-    "on-click": "foot -T impala -a floatterm -e impala",
-    "on-click-right": "foot -T nethogs -a floatterm nethogs",
+
+  "custom/split": {
+    "format": "|",
+    "tooltip": false
   },
-  "wireplumber#sink": {
-    "format": "{icon} {volume}%",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
-    "tooltip-format": "{node_name}\nVolume: {volume}%",
-    "format-muted": "󰸈",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-  },
-  "wireplumber#source": {
-    "node-type": "Audio/Source",
-    "format": "󰍬",
-    "format-muted": "󰍭",
-    "tooltip-format": "{node_name}\nVolume: {volume}%",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-click-right": "pavucontrol",
-    "scroll-step": 5,
-  },
-  "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%d.%m - %H:%M}",
-    "tooltip-format": "<span color='#CECDC3'><tt>{calendar}</tt></span>",
-    "calendar": {
-      "mode-mon-col": 3,
-      "on-scroll": 1,
-      "on-click-right": "mode",
-      "format": {
-        "months": "<span color='#CECDC3'><b>{}</b></span>",
-        "weekdays": "<span color='#24837B'><b>{}</b></span>",
-        "today": "<span color='#24837B'><b>{}</b></span>",
-      },
-    },
-    "actions": {
-      "on-click-right": "mode",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
-  },
-  // "in case tzdata update fucks up your clock",
-  "custom/clock": {
-    "format": "{}",
+
+  "custom/arch": {
+    "format": "󰣇",
     "tooltip": false,
-    "exec": "date +'%b %d %H:%M'",
-    "interval": 60,
-    "on-click": "~/.local/bin/noti_cal",
+    "on-click": "wofi --show drun"
   },
-  "custom/power": {
-    "interval": "once",
-    "format": "󰐥",
+
+  "custom/powerprofile": {
+    "exec": "~/.config/waybar/scripts/powerprofile.sh display",
+    "on-click": "~/.config/waybar/scripts/powerprofile.sh toggle",
+    "interval": 5,
+    "tooltip": true,
+    "exec-tooltip": "~/.config/waybar/scripts/powerprofile.sh tooltip",
+    "tooltip-format": "Power Profile: {} \nClick to cycle: Efficient → Normal → Overclocked"
+  },
+
+  "custom/themeswitcher": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Click to change theme",
+    "on-click": "~/.config/waybar/scripts/theme-switcher.sh next",
+    "on-click-right": "~/.config/scripts/theme-switcher.sh random"
+  },
+
+  "custom/player2": {
+    "exec": "~/.config/waybar/scripts/player_waybar.sh",
+    "interval": 2,
+    "on-click": "bash ~/.config/waybar/scripts/player_waybar.sh toggle",
+    "tooltip": false
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "<span font-size='large'>{icon}</span>",
+    "format-icons": {
+      "notification": " ",
+      "none": " ",
+      "dnd-notification": " ",
+      "dnd-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-middle": "swaync-client -C",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/spotify": {
+    "exec": "/usr/bin/python3 /home/najdza/.config/waybar/scripts/mediaplayer.py",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify next",
+    "on-scroll-down": "playerctl --player=spotify previous"
+  },
+
+  "custom/bluetooth": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/bluetooth_status.sh",
+    "interval": 5,
+    "on-click": "blueman-manager"
+  },
+
+  "custom/player": {
+    "exec": "~/.config/waybar/scripts/player_waybar.sh",
+    "interval": 2,
+    "on-click": "bash ~/.config/waybar/scripts/player_waybar.sh toggle",
+    "tooltip": false
+  },
+
+  "custom/brave": {
+    "exec": "/home/najdza/.config/waybar/scripts/waybar_brave_player.sh",
+    "interval": 2,
     "tooltip": false,
-    "on-click": "~/.local/bin/menu_scripts/menu_power",
+    "on-click": "playerctl -p brave play-pause"
   },
-  "custom/idle": {
-    "interval": "once",
-    "return-type": "json",
-    "format": "{}",
-    "exec": "~/.config/hypr/waybar/scripts/idle.sh",
-    "signal": 1,
-    "on-click": "~/.config/hypr/scripts/hypridle-toggle.sh; pkill -RTMIN+2 waybar",
+
+  "custom/cava": {
+    "exec": "~/.config/waybar/scripts/cava_wrapper.sh",
+    "format": "♪ {}",
+    "restart-interval": 1,
+    "max-length": 50,
+    "on-click": "pkill cava"
   },
-  "custom/wf-recorder": {
-    "interval": "once",
-    "return-type": "json",
-    "format": "{}",
-    "exec": "echo '{\"class\": \"recording\",\"text\":\"󰻂\",\"tooltip\":\"Click right to stop recording\"}'",
-    "exec-if": "pgrep wf-recorder",
-    "on-click": "~/.local/bin/wl-record -k",
-    "signal": 2,
-  },
-  "group/sound": {
+
+  // ====================
+  // Groups
+  // ====================
+  "group/workspaces": {
     "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 700,
-      "transition-to-left": true,
-    },
-    "modules": ["wireplumber#sink", "wireplumber#source"],
+    "modules": [
+      "custom/openbracket",
+      "hyprland/workspaces",
+      "custom/closebracket"
+    ]
   },
+
+  "group/windows": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/openbracket",
+      "hyprland/window",
+      "custom/closebracket"
+    ]
+  },
+
+  "group/cpuram": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/openbracket",
+      "cpu",
+      "custom/split",
+      "memory",
+      "custom/closebracket"
+    ]
+  },
+
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/openbracket",
+      "clock",
+      "custom/closebracket"
+    ]
+  },
+
+  // ====================
+  // Hyprland Modules
+  // ====================
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "enable-bar-scroll": true,
+    "disable-scroll-wraparound": true,
+    "active-only": false,
+    "format": "{icon}",
+    "persistent-workspaces": { "*": [1,2,3] },
+    "format-icons": { "1":"1","2":"2","3":"3","default":"•" }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 40,
+    "min-length": 20,
+    "all-outputs": true
+  },
+
+  // ====================
+  // CPU/RAM
+  // ====================
+  "cpu": {
+    "format": "CPU:{usage}%",
+    "tooltip": false,
+    "interval": 2,
+    "on-click": "konsole -e btop"
+  },
+
+  "memory": {
+    "format": "RAM:{}%",
+    "tooltip": false,
+    "interval": 2,
+    "on-click": "konsole -e btop"
+  },
+
+  // ====================
+  // Clock
+  // ====================
+  "clock": {
+    "format": "{:%R}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "format": {
+        "months": "<span color='#D3D04F'><b>{}</b></span>",
+        "days": "<span color='#93B1A6'><b>{}</b></span>",
+        "weekdays": "<span color='#8EAC50'><b>{}</b></span>",
+        "today": "<span color='#8EAC50'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  // ====================
+  // Audio
+  // ====================
+  "wireplumber": {
+    "scroll-step": 5,
+    "format": "{icon}{volume}%",
+    "format-bluetooth": "{icon} {volume}% ",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": " 0%",
+    "format-icons": { "default": [" "," "," "] },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " Muted",
+    "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1.3 @DEFAULT_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1.3 @DEFAULT_SOURCE@ 5%-",
+    "scroll-step": 5
+  },
+
+  // ====================
+  // Tray
+  // ====================
+  "tray": {
+    "icon-size": 13,
+    "spacing": 5
+  }
 }
