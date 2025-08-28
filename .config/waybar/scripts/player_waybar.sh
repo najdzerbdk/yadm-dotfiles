@@ -50,7 +50,7 @@ SELECTED_PLAYER=$(cat "$CACHE_FILE" 2>/dev/null)
 [[ -n "$SELECTED_PLAYER" && " ${VALID_PLAYERS[*]} " =~ " $SELECTED_PLAYER " ]] && ACTIVE_PLAYER="$SELECTED_PLAYER"
 [[ -z "$ACTIVE_PLAYER" && -n "$FALLBACK_PLAYER" ]] && ACTIVE_PLAYER="$FALLBACK_PLAYER"
 
-[[ -z "$ACTIVE_PLAYER" ]] && { echo " Brak odtwarzacza"; exit 0; }
+[[ -z "$ACTIVE_PLAYER" ]] && { echo "  Brak odtwarzacza"; exit 0; }
 
 echo "$ACTIVE_PLAYER" > "$CACHE_FILE"
 status=$(playerctl -p "$ACTIVE_PLAYER" status 2>/dev/null)
