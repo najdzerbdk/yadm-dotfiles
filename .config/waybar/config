@@ -25,6 +25,16 @@
         "tooltip": false,
         "exec": "echo ']'"
     },
+     "hyprland/workspaces": {
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "enable-bar-scroll": true,
+    "disable-scroll-wraparound": true,
+    "active-only": false,
+    "format": "{icon}",
+    "persistent-workspaces": { "*": [1,2,3] },
+    "format-icons": { "1":"1","2":"2","3":"3","default":"•" }
+  },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
         "format-disconnected": "Disconnected ",
