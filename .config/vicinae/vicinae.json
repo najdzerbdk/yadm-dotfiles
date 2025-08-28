@@ -8,6 +8,7 @@
         "searchFiles": false
     },
     "theme": {
+        "name": "vicinae-dark"
     },
     "window": {
         "csd": true,

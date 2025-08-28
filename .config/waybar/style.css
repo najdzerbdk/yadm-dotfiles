@@ -39,7 +39,7 @@
 /* Waybar */
 #waybar {
   background: @kngw-bg-color;
-  color: @kngw-fg-color;
+  color: #957fb8;
 }
 
 /* Tooltips */
@@ -162,7 +162,7 @@ tooltip {
 /* workspace pannel */
 #workspaces button {
     min-width: 22px;
-    border-radius: 151px;
+    border-radius: 10px;
     margin: 0px 0;
     padding: 2px 4px;
     /* --- ZMIANA: Lekko przyciemniony tekst dla czytelności --- */
@@ -171,15 +171,15 @@ tooltip {
 }
 
 #workspaces button:hover {
-    background-color: @second-background;
+    background-color: #957fb8;
 }
 
 #workspaces button.active {
-    color: @focused2;
-    background-color: @second-background;
+    color: #957fb8;
+    background-color: #54546d;
 }
 #workspaces button.urgent {
-    background-color: @urgent;
+    background-color: #957fb8;
 }
 
 
