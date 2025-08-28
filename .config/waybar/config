@@ -1,14 +1,29 @@
 {
     "position": "bottom",
     "height": 5,
-    "modules-left": ["hyprland/workspaces", "custom/player2"],
+    "modules-left": ["hyprland/workspaces", "custom/separator", "custom/player2"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["clock", "tray", "custom/gammastep"],
+    "modules-right": ["custom/leftbracket", "wireplumber", "custom/rightbracket", "custom/leftbracket", "clock", "custom/rightbracket", "custom/leftbracket", "custom/gammastep", "custom/rightbracket"],
     "custom/player2": {
          "exec": "~/.config/waybar/scripts/player_waybar.sh",
          "interval": 2,
          "on-click": "bash ~/.config/waybar/scripts/player_waybar.sh toggle",
          "tooltip": false
+    },
+    "custom/leftbracket": { // Nowy moduł separatora
+        "format": "[",
+        "tooltip": false,
+        "exec": "echo '['"
+    },
+        "custom/split": { // Nowy moduł separatora
+        "format": "|",
+        "tooltip": false,
+        "exec": "echo '|'"
+    },
+        "custom/rightbracket": { // Nowy moduł separatora
+        "format": "]",
+        "tooltip": false,
+        "exec": "echo ']'"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
@@ -43,11 +58,26 @@
             "deactivated": ""
         }
     },
+    "wireplumber": {
+        "scroll-step": 5,
+        "format": " {icon}{volume}% ",
+        "format-bluetooth": " {icon} {volume}%  ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": " 0%  ",
+        "format-icons": { "default": [" ", " ", " "] },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "wofi --show drun"
+    },
     "tray": {
         "spacing": 10
     },
     "clock": {
-        "format": "{:%H:%M }",
+        "format": " {:%H:%M} ",
         "format-alt": "{:%Y-%m-%d}",
         "tooltip-format": "{calendar}",
         "calendar": {
@@ -97,13 +127,18 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "format": "{volume}%  {format_source}",
-        "format-bluetooth": "{volume}%  {format_source}",
+        "format": "{volume}% {format_source}",
+        "format-bluetooth": "{volume}% {format_source}",
         "format-bluetooth-muted": " {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
-        "on-click": "pavucontrol"
+        // Dodano obsługę przewijania głośności
+        "on-scroll-up": "~/.config/waybar/scripts/volume.sh up",
+        "on-scroll-down": "~/.config/waybar/scripts/volume.sh down",
+        // Zmieniono akcję kliknięcia, aby wyciszała/odciszała
+        "on-click": "~/.config/waybar/scripts/volume.sh toggle",
+        "scroll-step": 5 // Opcjonalnie: krok zmiany głośności podczas przewijania (domyślnie 5)
     },
     "custom/media": {
         "format": " {}",
