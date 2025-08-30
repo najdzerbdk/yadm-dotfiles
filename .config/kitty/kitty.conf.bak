@@ -17,10 +17,10 @@ scrollback_indicator_opacity 1.0
 scrollback_lines 2000
 
 # Ustawienia kursora
-cursor_trail 10
-cursor_shape block
+cursor_trail 1
+cursor_shape beam
 cursor_beam_thickness 2
-cursor_shape_unfocused hollow
+cursor_shape_unfocused unchanged
 cursor_blink_interval -1 ease-in-out
 
 # Ustawienia paska zakładek
@@ -28,7 +28,7 @@ tab_bar_style powerline
 
 # Ustawienia przezroczystości tła
 background_opacity 0.90
-dynamic_background_opacity yes
+dynamic_background_opacity no
 background_blur 1
 
 # Ustawienia fontów
@@ -36,20 +36,12 @@ font_family 0xProto Nerd Font
 bold_font auto
 italic_font auto
 bold_italic_font auto
-font_size 11
+font_size 12
 
 # Włączanie motywu
-include /home/najdza/.config/btop/themes/kripton.theme
+include /home/najdza/.config/btop/themes/matugen.theme
+
 # Skróty klawiszowe
 map ctrl+v paste_from_clipboard
 map ctrl+k delete_to_end_of_line
 map ctrl+u delete_to_beginning_of_line
-
-# background_image /mnt/storage/pobrane/GdErUjnXAAAsR7i.jpg
-# background_image_layout centered 
-
-#tabsy
-enabled_layouts Tall, *
-tab_bar_style       powerline
-tab_powerline_style slanted
-single_window_margin_width 0
