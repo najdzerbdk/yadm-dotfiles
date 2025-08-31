@@ -5,6 +5,8 @@ if status is-interactive
     # aliasy
     alias hh='helix'
     alias pobierz='sudo pacman -S'
+    alias seriale='cd /mnt/storage/kodowanie/python
+                           python main.py'
 end
 # Created by `pipx` on 2023-10-13 17:54:22
 set PATH $PATH /home/can/.local/bin

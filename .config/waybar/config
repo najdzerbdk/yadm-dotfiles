@@ -100,11 +100,11 @@
         }
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": " {usage}% ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": " {}% "
     },
     "temperature": {
         "critical-threshold": 80,
@@ -158,7 +158,7 @@
         "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
     },
     "custom/gammastep": {
-        "format": "  ",
+        "format": " 󰣇 ",
         "on-click": "~/.config/waybar/scripts/gammastep_toggle.sh"
     }
 }

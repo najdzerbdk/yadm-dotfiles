@@ -1,14 +1,16 @@
 {
-    "faviconService": "twenty",
+    "faviconService": "google",
     "font": {
+        "normal": "Hack",
         "size": 10
     },
-    "popToRootOnClose": false,
+    "popToRootOnClose": true,
     "rootSearch": {
         "searchFiles": false
     },
     "theme": {
-        "name": "vicinae-dark"
+        "iconTheme": "breeze-dark",
+        "name": "github-dark.json"
     },
     "window": {
         "csd": true,
